@@ -27,6 +27,7 @@
             android:name=".SeasonActivity"
             android:label="Sherlock"
 
+
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity"></activity>
 
