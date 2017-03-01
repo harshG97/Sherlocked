@@ -1,6 +1,7 @@
 package com.example.harsh.sherlocked;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.harsh.sherlocked.extra.EpisodeAdapter;
 import com.example.harsh.sherlocked.extra.HttpHandler;
+import com.example.harsh.sherlocked.extra.dialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,13 +24,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class EpiActivity extends AppCompatActivity {
 
     private String TAG = EpiActivity.class.getSimpleName();
     private String url;
+    Context context;
     private ProgressDialog pDialog;
     EpisodeAdapter mAdapter;
+    dialog epiDialog = new dialog();
+    String ssn;
     private ListView lv;
     private RecyclerView mrecyclerView;
 //getIntent().getStringExtra("SEASON")
@@ -42,10 +48,11 @@ public class EpiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_episode);
-
+        ssn = getIntent().getStringExtra("SEASON");
         url = "http://api.themoviedb.org/3/" + "tv/19885/season/" + getIntent().getStringExtra("SEASON") + "?api_key=80ae88432cc909771e2db7faf48150b4" ;
         episodeList = new ArrayList<>();
 
+        context = this;
          mrecyclerView = (RecyclerView) findViewById(R.id.episodelist);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -166,6 +173,11 @@ public class EpiActivity extends AppCompatActivity {
         @Override
         public void onItemClick(View v, int position) {
             Toast.makeText(EpiActivity.this, "Clicked " + position, Toast.LENGTH_SHORT).show();
+          //  HashMap<String,String> episode = new HashMap<>();
+
+
+            epiDialog.showDialog(context, episodeList.get(position), ssn);
+
         }
     };
 }
