@@ -42,7 +42,7 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.EpisodeV
     public class EpisodeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView epiLayout;
         TextView epi;
-        TextView date;
+       // TextView date;
         ImageView image;
         //String imgSrc;
         // TextView movieDescription;
@@ -56,7 +56,7 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.EpisodeV
             epiLayout = (CardView) v.findViewById(R.id.epiCard);
             epi = (TextView) v.findViewById(R.id.epi);
             image = (ImageView) v.findViewById(R.id.epiImage);
-            date = (TextView) v.findViewById(R.id.date);
+           // date = (TextView) v.findViewById(R.id.date);
             rating =(TextView) v.findViewById(R.id.rating);
             Holder = (LinearLayout) v.findViewById(R.id.mainEpiHolder);
             Holder.setOnClickListener(this);
@@ -104,7 +104,7 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.EpisodeV
 
 
         holder.epi.setText(  episodes.get(position).get("epi")+". " + episodes.get(position).get("name")  );
-        holder.date.setText(episodes.get(position).get("date"));
+
         holder.rating.setText(episodes.get(position).get("rating"));
 
         // holder.imgSrc =(episodes.get(position).getPosterPath());

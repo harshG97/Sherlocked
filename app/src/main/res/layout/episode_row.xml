@@ -11,7 +11,8 @@ android:layout_height="400dp"
 android:layout_margin="8dp"
 card_view:cardCornerRadius="2dp"
 card_view:cardElevation="4dp"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    card_view:cardBackgroundColor="?android:attr/textColorPrimaryInverse">
 
 
 
@@ -19,10 +20,10 @@ card_view:cardElevation="4dp"
         android:id="@+id/mainEpiHolder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/cardview_light_background"
         android:orientation="horizontal"
         android:clickable="true"
-        android:backgroundTint="@color/colorPrimary" />
+        android:backgroundTint="@android:color/background_light" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -47,7 +48,9 @@ card_view:cardElevation="4dp"
             android:gravity="left"
             android:paddingLeft="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:padding="10dp"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:id="@+id/rating"
@@ -57,17 +60,9 @@ card_view:cardElevation="4dp"
             android:gravity="left"
             android:paddingLeft="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="left"
-            android:paddingLeft="10dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:padding="5dp" />
 
     </LinearLayout>
 
